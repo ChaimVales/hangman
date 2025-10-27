@@ -1,6 +1,12 @@
 import hangman.game
 def prompt_guess() -> str:
     ot = input("enter yout ot")
+    if not ot.isalpha():
+        print("Just a letter, not a number.")
+        prompt_guess()
+    if len(ot) > 1:
+        print("Just one letter, no more.")
+        prompt_guess()
     return ot
 
 def print_status(state: dict) -> None:
